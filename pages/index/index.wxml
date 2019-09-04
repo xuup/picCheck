@@ -1,0 +1,48 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 选择需要解析的图片 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+
+    <button wx:if="{{hasUserInfo && canIUse}}" bindtap="choosePic"> 选择需要解析的图片 </button>
+
+    <block wx:if="{{filePath}}">
+      <image src="{{filePath}}" style='width:600rpx;  height:600rpx'></image>
+    </block>
+  <view wx:if="{{showTips}}" class="tips">
+    <view>
+    说明:
+    </view>
+    <view>
+      仅支持原图解析；
+    </view>
+    <view>
+      可能存在解析信息不存在的情况；
+    </view>
+    <view>
+      图片仅作解析使用，不会留存您的图片；
+    </view>
+    </view>
+  </view>
+  <view class="usermotto">
+  <block wx:if="{{filePath}}">
+    <view><icon wx:if="{{location}}" type="success" size="20"></icon>
+    <icon wx:else type="clear" size="20"></icon>
+    <text>拍摄地点:{{location}}</text> <navigator id="locateMap" wx:if="{{location}}" url="/pages/map/map?latitude={{latitude}}&longitude={{longitude}}" hover-class="changestyle">查看详细位置</navigator>
+    </view>
+    <view>
+    <icon wx:if="{{time}}" type="success" size="20"></icon>
+    <icon wx:else type="clear" size="20"></icon>
+    <text class="user-motto">拍摄时间: {{time}}</text>
+    </view>
+    <view>
+    <icon wx:if="{{make}}" type="success" size="20"></icon>
+    <icon wx:else type="clear" size="20"></icon>
+    <text class="user-motto">拍摄设备: {{make}}-{{model}}</text>
+    </view>
+    </block>
+  </view>
+</view>
