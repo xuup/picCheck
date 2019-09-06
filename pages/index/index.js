@@ -35,6 +35,7 @@ Page({
         })
         wx.showToast({
           icon: "loading",
+          duration: 50000,
           title: '解析中...'
         })
         wx.uploadFile({
@@ -61,6 +62,9 @@ Page({
             wx.hideToast();
           }
         })
+
+
+        
 
       },
       fail: function (res) {
