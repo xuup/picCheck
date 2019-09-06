@@ -10,6 +10,12 @@ Page({
     showTips:true,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+  onShareAppMessage: function () {
+    return {
+      title: '图片地理位置解析',
+      imageUrl: '/images/a.png'
+    }
+  },
   choosePic: function () {
     var that = this;
     console.log("choosePic...");

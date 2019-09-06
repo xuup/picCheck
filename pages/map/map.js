@@ -13,6 +13,14 @@ Page({
       name: 'T.I.T 创意园'
     }]
   },
+  
+  onShareAppMessage: function () {
+    return {
+      title: '图片位置解析',
+      imageUrl: '/images/b.jpg'
+    }
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
