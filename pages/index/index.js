@@ -12,8 +12,8 @@ Page({
   },
   onShareAppMessage: function () {
     return {
-      title: '图片地理位置解析',
-      imageUrl: '/images/a.png'
+      title: '图片位置解析',
+      imageUrl: '/images/b.jpg'
     }
   },
   choosePic: function () {
